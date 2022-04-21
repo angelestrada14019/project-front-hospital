@@ -1,0 +1,34 @@
+.register{
+    
+}
+.register form{
+    background-color: var(--white);
+    padding: 0 60px;
+    border-radius: 10px;
+    box-shadow: var(--smboxShadow);
+}
+.register form h1{
+    text-align: center;
+    color: var(--gray);
+}
+.register select {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    border: 1px solid var(--gray);
+}
+.register form button{
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    border: none;
+    background-color: var(--gray);
+    color: var(--white);
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
