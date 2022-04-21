@@ -1,15 +1,12 @@
 import React from 'react'
-import Sidebar from "../../components/Sidebar";
+import Main from '../../layout/Main';
 import './blank.css'
 const Blank = (props) => {
   return (
     <>     
-        <div className="App">
-        <div className="AppGlass">
-          <Sidebar />
-          {props.title}
-        </div>
-      </div>
+       <Main>
+           {props.title}
+       </Main>
 
     </>
   )

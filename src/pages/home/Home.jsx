@@ -1,16 +1,15 @@
 import React from "react";
 import MainDash from "../../components/MainDash/MainDash";
-
-import Sidebar from "../../components/Sidebar";
+import Main from "../../layout/Main";
 const Home = () => {
   return (
     <>
-      <div className="App">
-        <div className="AppGlass">
-          <Sidebar />
+        <Main>
+
           <MainDash />
-        </div>
-      </div>
+        </Main>
+    
+       
     </>
   );
 };

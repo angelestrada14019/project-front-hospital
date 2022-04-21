@@ -59,6 +59,7 @@ const Login = () => {
   };
   //...........................................
   useEffect(() => {
+      
     validateTokenSignIn();
   }, []);
 
@@ -69,7 +70,7 @@ const Login = () => {
     };
     const response = await ApiCall.invokePOST(`/auth/login`, data);
     try {
-      console.log(response);
+     // console.log(response.ok);
       const jwt = response.body.token;
       const id_usuario = response.body.usuarioDto.id;
       const perfil_id = response.body.usuarioDto.perfil_id;
@@ -77,7 +78,7 @@ const Login = () => {
       localStorage.setItem("token", jwt);
       localStorage.setItem("id_usuario", id_usuario);
       localStorage.setItem("perfil_id", perfil_id);
-      return true;
+      return response.ok;
     } catch (error) {
       return false;
     }
@@ -85,10 +86,16 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const ok = IniciarSesion();
+    const ok =await IniciarSesion();
+    
     if (ok) {
       setTimeout(() => {
         navigate("/home");
+        Swal.fire({
+            icon: "success",
+            title: "Bienvenido",
+            text: "Inicio de sesion exitoso",
+          });
       }, 1000);
     } else {
       navigate("/");
