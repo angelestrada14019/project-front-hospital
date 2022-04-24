@@ -90,12 +90,12 @@ const Login = () => {
     
     if (ok) {
       setTimeout(() => {
+          Swal.fire({
+              icon: "success",
+              title: "Bienvenido",
+              text: "Inicio de sesion exitoso",
+            });
         navigate("/home");
-        Swal.fire({
-            icon: "success",
-            title: "Bienvenido",
-            text: "Inicio de sesion exitoso",
-          });
       }, 1000);
     } else {
       navigate("/");

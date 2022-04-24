@@ -1,17 +1,6 @@
 import config from './config'
 
-class ApiCall {
-
-    useTokenLocalStorage(){
-        const token = localStorage.getItem("token");
-        let bearer;
-        if (token === "") {
-            bearer = "";
-        } else {
-            bearer = `Bearer ${token}`;
-        }
-        return bearer;
-    }
+class ApiCall {   
 
     async invokeGET(resource, queryParams) {//url y parametros de busqueda
 
@@ -19,12 +8,12 @@ class ApiCall {
         const queryString = queryParams.reduce((last, q, i) => last + `${i === 0 ? '?' : "&"}${q}`, '')
 
         const bearer = localStorage.getItem("token");
-
+        
         const data = {
             method: 'GET',
             headers: { 
                 'Content-Type': 'application/json',
-                'Authorization': bearer
+                'Authorization': `Bearer ${bearer}`
             }
         }
         const url = `${config.api.baseURL}${resource}${queryString}`
@@ -41,7 +30,7 @@ class ApiCall {
             body: JSON.stringify(body),
             headers: { 
                 'Content-Type': 'application/json',
-               'Authorization': bearer
+               'Authorization': `Bearer ${bearer}`
             }
         }
         const url = `${config.api.baseURL}${resource}`
@@ -58,7 +47,7 @@ class ApiCall {
             body: JSON.stringify(body),
             headers: { 
                 'Content-Type': 'application/json',
-               'Authorization': bearer
+               'Authorization': `Bearer ${bearer}`
             }
         }
         const url = `${config.api.baseURL}${resource}`
@@ -74,7 +63,7 @@ class ApiCall {
             method: 'DELETE',
             headers: { 
                 'Content-Type': 'application/json',
-               'Authorization': bearer
+               'Authorization': `Bearer ${bearer}`
             }
         }
         const url = `${config.api.baseURL}${resource}`

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
-import Logo from "../imgs/logo.png";
 import { UilSignOutAlt } from "@iconscout/react-unicons";
 import { SidebarData } from "../Data/Data";
 import { UilBars } from "@iconscout/react-unicons";
